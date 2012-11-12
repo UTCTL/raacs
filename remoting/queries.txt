@@ -1,0 +1,8 @@
+RAACS Queries
+
+-Get assignments for user
+
+SELECT assignments.*, assignments_users.override_publish_start, assignments_users.override_publish_start,assignments_users.grade
+FROM assignments 
+LEFT JOIN assignments_users ON assignments.id = assignments_users.assignment_id 
+WHERE assignments.group_id IN (SELECT group_id FROM groups_users WHERE user_id = 1)
